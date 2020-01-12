@@ -2,17 +2,15 @@ class Element{
   constructor(x, y, w, value, backColor){
     this.pos = createVector(x, y);
     this.w = w;
-    this.h = value;
     this.value = value;
     this.backColor = backColor;
   }
 
   draw(){
-    //strokeWeight(0.5);
     strokeWeight(0);
     stroke(BLACK);
     fill(this.backColor);
-    rect(this.pos.x - this.w / 2, this.pos.y, this.w, this.h);
+    rect(this.pos.x - this.w / 2, this.pos.y, this.w, this.value);
     
     if (vector.length() < 16){
       fill(BLACK);

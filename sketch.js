@@ -21,13 +21,14 @@ function setup() {
 	setSelectors();
 	setVector();
 	setControl();
+	setSorter();
 }
 
 function draw() {
 	background(GRAY3);
-	//vector.update();
-	vector.draw();
 	control.draw();
+	sorter.run();
+	vector.draw();
 }
 
 function setControl(){
@@ -46,9 +47,19 @@ function setButton(pos, label, action){
 }
 
 function setButtons(){
-	btnSort = setButton(createVector(SCREEN_WIDTH * 0.9, HEADER_HEIGHT / 2), 'Sort', runSort);
-	btnStop = setButton(createVector(SCREEN_WIDTH * 0.8, HEADER_HEIGHT / 2), 'Stop', stopSort);
+	btnSort = setButton(createVector(SCREEN_WIDTH * 0.7, HEADER_HEIGHT / 2), 'Sort', runSort);
+	btnStop = setButton(createVector(SCREEN_WIDTH * 0.6, HEADER_HEIGHT / 2), 'Stop', stopSort);
 	btnGenerate = setButton(createVector(SCREEN_WIDTH * 0.1, HEADER_HEIGHT / 2), 'Generate Array', generateArray);
+	setEnabled(btnStop, false);
+}
+
+function setEnabled(btn, value){
+	if (value){
+		btn.removeAttribute('disabled');
+	}
+	else{
+		btn.attribute('disabled', value);
+	}
 }
 
 function setSlider(pos, minValue, maxValue, value, step, inputAction){
@@ -59,7 +70,7 @@ function setSlider(pos, minValue, maxValue, value, step, inputAction){
 }
 
 function setSliders(){
-	sliderArraySize = setSlider(createVector(SCREEN_WIDTH * 0.4, HEADER_HEIGHT / 2), 4, MAX_VALUE, 8, 1, setVector);
+	sliderArraySize = setSlider(createVector(SCREEN_WIDTH * 0.2, HEADER_HEIGHT / 2), 4, MAX_VALUE, 8, 1, setVector);
 }
 
 function setSelector(pos, options, changeAction){
@@ -73,59 +84,43 @@ function setSelector(pos, options, changeAction){
 }
 
 function setSelectors(){
-	selectorSorting = setSelector(createVector(SCREEN_WIDTH * 0.6, HEADER_HEIGHT / 2), SORTING_TYPES, setSorter);
+	selectorSorting = setSelector(createVector(SCREEN_WIDTH * 0.4, HEADER_HEIGHT / 2), SORTING_TYPES, setSorter);
 }
 
 function setSorter(){
 	if (selectorSorting.value() == 'BubbleSort'){
-		sorter = new BubbleSorter();
+		sorter = new BubbleSorter(vector);
 	}
 	else if (selectorSorting.value() == 'MaxSort'){
-		//sorter = new MaxSorter();
+		//sorter = new MaxSorter(vector);
 	}
 	else if (selectorSorting.value() == 'HeapSort'){
-		//sorter = new HeapSorter();
+		//sorter = new HeapSorter(vector);
 	}
 	else if (selectorSorting.value() == 'QuickSort'){
-		//sorter = new QuickSorter();
+		//sorter = new QuickSorter(vector);
 	}
 	else if (selectorSorting.value() == 'MergeSort'){
-		//sorter = new MergeSorter();
+		//sorter = new MergeSorter(vector);
 	}
 }
 
 function runSort(){
-
+	print('sort');
+	sorter.start();
+	setEnabled(btnSort, false);
+	setEnabled(btnStop, true);
 }
 
 function stopSort(){
-	if (sorter.isRunning){
-		noLoop();
-		sorter.setRunning(false);
-	}
+	print('stop');
+	noLoop();
+	sorter.stop();
+	setEnabled(btnSort, true);
+	setEnabled(btnStop, false);
 }
 
 function generateArray(){
+	print('generate array');
 	setVector();
-}
-
-function startBubbleSortSimulation(){
-	vector.startBubbleSort();
-	console.log(vector.isBubbleSortRunning);
-}
-
-function startMergeSortSimulation(){
-	vector.startMergeSort();
-	console.log(vector.isMergeSortRunning);
-}
-
-function reset(){
-	vector.reset();
-	checks = 0;
-	console.log(vector.isBubbleSortRunning);
-}
-
-function shuffleVector(){
-	vector.shuffle();
-	vector.show();
 }

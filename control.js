@@ -9,13 +9,5 @@ class Control{
         noStroke();
         fill(TURQUOISE);
         rect(0, 0, SCREEN_WIDTH, HEADER_HEIGHT);
-        /*
-        fill(YELLOW);
-        noStroke();
-        textSize(FONT_SIZE2);
-        textStyle(NORMAL);
-        textFont(FONT_FAMILY);
-        textAlign(CENTER, CENTER);
-        */
     }
 }
