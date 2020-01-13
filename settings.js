@@ -2,7 +2,7 @@
 const SCREEN_WIDTH = 1280;
 const SCREEN_HEIGHT = 900;
 
-const MAX_FPS = 60;
+const MAX_FPS = 100;
 
 /* COLORS */
 const BLACK = [0, 0, 0];

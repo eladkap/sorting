@@ -38,7 +38,7 @@ function setControl(){
 
 function setVector(){
 	vector = new Vector(VECTOR_POS_X, VECTOR_POS_Y, VECTOR_WIDTH, sliderArraySize.value());
-	fps = vector.length() / MAX_ELEMENTS_NUM *  MAX_FPS;
+	fps = Math.ceil(vector.length() / MAX_ELEMENTS_NUM *  MAX_FPS);
 	frameRate(fps);
 }
 
