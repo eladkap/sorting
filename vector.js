@@ -10,6 +10,10 @@ class Vector{
     return this.arr.length;
   }
 
+  elements(){
+    return this.arr;
+  }
+
   at(i){
     return this.arr[i];
   }
@@ -46,4 +50,6 @@ class Vector{
       element.draw();
     }
   }
+
+  setAllElement
 }

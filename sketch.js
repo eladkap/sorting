@@ -10,12 +10,13 @@ var sliderArraySize;
 var selectorSorting;
 
 var sorter;
+var fps = MAX_FPS;
 
 
 function setup() {
 	createCanvas(SCREEN_WIDTH, SCREEN_HEIGHT);
 	background(GRAY3);
-	frameRate(FPS);
+	frameRate(fps);
 	setButtons();
 	setSliders();
 	setSelectors();
@@ -37,6 +38,8 @@ function setControl(){
 
 function setVector(){
 	vector = new Vector(VECTOR_POS_X, VECTOR_POS_Y, VECTOR_WIDTH, sliderArraySize.value());
+	fps = vector.length() / MAX_ELEMENTS_NUM *  MAX_FPS;
+	frameRate(fps);
 }
 
 function setButton(pos, label, action){
@@ -70,7 +73,7 @@ function setSlider(pos, minValue, maxValue, value, step, inputAction){
 }
 
 function setSliders(){
-	sliderArraySize = setSlider(createVector(SCREEN_WIDTH * 0.2, HEADER_HEIGHT / 2), 4, MAX_VALUE, 8, 1, setVector);
+	sliderArraySize = setSlider(createVector(SCREEN_WIDTH * 0.2, HEADER_HEIGHT / 2), 4, MAX_ELEMENTS_NUM, 8, 1, setVector);
 }
 
 function setSelector(pos, options, changeAction){
@@ -107,9 +110,14 @@ function setSorter(){
 
 function runSort(){
 	print('sort');
+	setSorter();
+	sorter.setVector(vector);
 	sorter.start();
+	loop();
 	setEnabled(btnSort, false);
 	setEnabled(btnStop, true);
+	setEnabled(sliderArraySize, false);
+	setEnabled(btnGenerate, false);
 }
 
 function stopSort(){

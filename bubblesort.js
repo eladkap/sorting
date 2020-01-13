@@ -11,6 +11,10 @@ class BubbleSorter{
         this.currIndexInSortedArray = 0;
     }
 
+    setVector(vector){
+        this.vector = vector;
+    }
+
     start(){
         this.isrunning = true;
     }
@@ -37,6 +41,10 @@ class BubbleSorter{
         }
         if (this.end()){
             this.runSorted();
+            setEnabled(btnSort, true);
+            setEnabled(btnSort, true);
+            setEnabled(sliderArraySize, true);
+            setEnabled(btnGenerate, true);
             return;
         }
         if (this.iterationIndex <= this.bubbleIndex){
@@ -44,9 +52,9 @@ class BubbleSorter{
         }
         else if (this.bubbleIndex >= 0){
             for (var i = 0; i < this.bubbleIndex + 1; i++) {
-                this.vector.arr[i].setColor(GRAY2);
+                this.vector.arr[i].setColor(TURQUOISELIGHT);
             }
-            this.vector.arr[this.bubbleIndex + 1].setColor(GRAY1);
+            this.vector.arr[this.bubbleIndex + 1].setColor(PURPLE);
             this.vector.arr[this.bubbleIndex + 1].draw();
             this.bubbleIndex--;
             this.iterationIndex = 0;
@@ -55,6 +63,9 @@ class BubbleSorter{
 
     runSorted(){
         if (this.currIndexInSortedArray == this.vector.arr.length){
+            for (let element of this.vector.elements()){
+                element.setColor(TURQUOISELIGHT);
+            }
             return;
         }
         this.vector.arr[this.currIndexInSortedArray].setColor(GREEN);
@@ -71,6 +82,11 @@ class BubbleSorter{
     runCheckPair(){
         this.vector.arr[this.iterationIndex].setColor(RED);
         this.vector.arr[this.iterationIndex + 1].setColor(RED);
+        for (let i = 0; i < this.vector.length(); i++){
+            if (i != this.iterationIndex && i != this.iterationIndex + 1 && i < this.bubbleIndex + 1){
+                this.vector.arr[i].setColor(TURQUOISELIGHT);
+            }
+        }
         return this.vector.arr[this.iterationIndex].value > this.vector.arr[this.iterationIndex + 1].value;
     }
 

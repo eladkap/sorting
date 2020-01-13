@@ -2,7 +2,7 @@
 const SCREEN_WIDTH = 1280;
 const SCREEN_HEIGHT = 900;
 
-const FPS = 10;
+const MAX_FPS = 60;
 
 /* COLORS */
 const BLACK = [0, 0, 0];
@@ -28,7 +28,7 @@ const TURQUOISELIGHT = [50, 180, 166];
 
 
 /* VECTOR */
-const ELEMENTS = 16;
+const MAX_ELEMENTS_NUM = 200;
 const VECTOR_POS_X = 200;
 const VECTOR_POS_Y = 200;
 const VECTOR_WIDTH = 600;
