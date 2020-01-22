@@ -1,6 +1,7 @@
 class Element{
-  constructor(x, y, w, value, backColor){
+  constructor(x, y, index, w, value, backColor){
     this.pos = createVector(x, y);
+    this.index = index;
     this.w = w;
     this.value = value;
     this.backColor = backColor;
@@ -21,7 +22,15 @@ class Element{
     }
   }
 
-  setColor(backColor){
+  setValue(value){
+    this.value = value;
+  }
+
+  getIndex(){
+    return this.index;
+  }
+
+  setBackcolor(backColor){
     this.backColor = backColor;
   }
 }

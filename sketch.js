@@ -3,14 +3,14 @@ var control;
 
 var btnSort;
 var btnReset;
-var btnStop;
 var btnGenerate;
 
 var sliderArraySize;
 var selectorSorting;
 
-var sorter;
-var fps = MAX_FPS;
+var sortAlgo;
+var fps = FPS;
+var delayInMilliSec = 100;
 
 
 function setup() {
@@ -22,13 +22,12 @@ function setup() {
 	setSelectors();
 	setVector();
 	setControl();
-	setSorter();
+	setSortAlgo();
 }
 
 function draw() {
 	background(GRAY3);
 	control.draw();
-	sorter.run();
 	vector.draw();
 }
 
@@ -38,8 +37,6 @@ function setControl(){
 
 function setVector(){
 	vector = new Vector(VECTOR_POS_X, VECTOR_POS_Y, VECTOR_WIDTH, sliderArraySize.value());
-	fps = Math.ceil(vector.length() / MAX_ELEMENTS_NUM *  MAX_FPS);
-	frameRate(fps);
 }
 
 function setButton(pos, label, action){
@@ -51,9 +48,7 @@ function setButton(pos, label, action){
 
 function setButtons(){
 	btnSort = setButton(createVector(SCREEN_WIDTH * 0.7, HEADER_HEIGHT / 2), 'Sort', runSort);
-	btnStop = setButton(createVector(SCREEN_WIDTH * 0.6, HEADER_HEIGHT / 2), 'Stop', stopSort);
 	btnGenerate = setButton(createVector(SCREEN_WIDTH * 0.1, HEADER_HEIGHT / 2), 'Generate Array', generateArray);
-	setEnabled(btnStop, false);
 }
 
 function setEnabled(btn, value){
@@ -87,45 +82,55 @@ function setSelector(pos, options, changeAction){
 }
 
 function setSelectors(){
-	selectorSorting = setSelector(createVector(SCREEN_WIDTH * 0.4, HEADER_HEIGHT / 2), SORTING_TYPES, setSorter);
+	selectorSorting = setSelector(createVector(SCREEN_WIDTH * 0.4, HEADER_HEIGHT / 2), SORTING_TYPES, setSortAlgo);
 }
 
-function setSorter(){
-	if (selectorSorting.value() == 'BubbleSort'){
-		sorter = new BubbleSorter(vector);
-	}
-	else if (selectorSorting.value() == 'MaxSort'){
-		//sorter = new MaxSorter(vector);
-	}
-	else if (selectorSorting.value() == 'HeapSort'){
-		//sorter = new HeapSorter(vector);
-	}
-	else if (selectorSorting.value() == 'QuickSort'){
-		//sorter = new QuickSorter(vector);
-	}
-	else if (selectorSorting.value() == 'MergeSort'){
-		//sorter = new MergeSorter(vector);
-	}
+function setSortAlgo(){
+	sortAlgo = selectorSorting.value();
+	console.log('Sorting algo set to ' + sortAlgo);
 }
 
-function runSort(){
-	print('sort');
-	setSorter();
-	sorter.setVector(vector);
-	sorter.start();
-	loop();
+async function startSort(){
+	console.log('sort');
 	setEnabled(btnSort, false);
-	setEnabled(btnStop, true);
 	setEnabled(sliderArraySize, false);
-	setEnabled(btnGenerate, false);
+	setEnabled(btnGenerate, false);	
+
+	if (sortAlgo == 'BubbleSort'){
+		console.log('Run BubbleSort')
+		await bubbleSort(vector);
+	}
+	else if (sortAlgo == 'QuickSort'){
+		console.log('Run QuickSort')
+		await quickSort(vector);
+	}
 }
+
 
 function stopSort(){
-	print('stop');
+	console.log('stop');
 	noLoop();
-	sorter.stop();
 	setEnabled(btnSort, true);
-	setEnabled(btnStop, false);
+}
+
+async function finishSort(){
+	console.log('Sort finished.');
+	setEnabled(btnSort, true);
+	setEnabled(sliderArraySize, true);
+	setEnabled(btnGenerate, true);
+	markVecorSorted();
+}
+
+async function markVecorSorted(){
+	for (let i = 0; i < vector.length(); i++){
+		vector.arr[i].setBackcolor(GREEN);
+		await sleep(delayInMilliSec);
+	}
+}
+
+async function runSort(){
+	await startSort();
+	finishSort();
 }
 
 function generateArray(){

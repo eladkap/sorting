@@ -21,7 +21,7 @@ class Vector{
   generate(){
     let elementWidth = this.w / this.arr.length;
     for (var i = 0; i < this.arr.length; i++) {
-    		this.arr[i] = new Element(this.pos.x + i * elementWidth, this.pos.y, elementWidth, floor(random(MAX_VALUE)), TURQUOISELIGHT);
+    		this.arr[i] = new Element(this.pos.x + i * elementWidth, this.pos.y, i, elementWidth, floor(random(MAX_VALUE)), TURQUOISELIGHT);
     }
   }
 
@@ -51,5 +51,9 @@ class Vector{
     }
   }
 
-  setAllElement
+  setBackcolor(start, end, col){
+    for (let i = start; i <= end; i++) {
+      this.arr[i].setBackcolor(col);
+    }
+  }
 }
