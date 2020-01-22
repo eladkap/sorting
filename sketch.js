@@ -116,10 +116,10 @@ function stopSort(){
 
 async function finishSort(){
 	console.log('Sort finished.');
+	await markVecorSorted();
 	setEnabled(btnSort, true);
 	setEnabled(sliderArraySize, true);
 	setEnabled(btnGenerate, true);
-	markVecorSorted();
 }
 
 async function markVecorSorted(){
@@ -127,6 +127,8 @@ async function markVecorSorted(){
 		vector.arr[i].setBackcolor(GREEN);
 		await sleep(delayInMilliSec);
 	}
+	await sleep(1000);
+	vector.setBackcolor(0, vector.length() - 1, TURQUOISELIGHT);
 }
 
 async function runSort(){
