@@ -10,7 +10,7 @@ var selectorSorting;
 
 var sortAlgo;
 var fps = FPS;
-var delayInMilliSec = 100;
+var delayInMilliSec = MIN_DELAY_IN_MS;
 
 
 function setup() {
@@ -37,6 +37,7 @@ function setControl(){
 
 function setVector(){
 	vector = new Vector(VECTOR_POS_X, VECTOR_POS_Y, VECTOR_WIDTH, sliderArraySize.value());
+	delayInMilliSec = map(vector.length(), MIN_ELEMENTS_NUM, MAX_ELEMENTS_NUM, MAX_DELAY_IN_MS, MIN_DELAY_IN_MS);
 }
 
 function setButton(pos, label, action){

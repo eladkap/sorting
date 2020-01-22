@@ -1,10 +1,10 @@
 async function bubble(vector, k){
     for (let i = 0; i < k; i++){
+        await sleep(delayInMilliSec);
+        vector.setBackcolor(0, k, TURQUOISELIGHT);
+        vector.arr[i].setBackcolor(YELLOW);
+        vector.arr[i + 1].setBackcolor(YELLOW);
         if (vector.arr[i].value > vector.arr[i + 1].value){
-            vector.setBackcolor(0, k, TURQUOISELIGHT);
-            vector.arr[i].setBackcolor(YELLOW);
-            vector.arr[i + 1].setBackcolor(YELLOW);
-            await sleep(delayInMilliSec);
             swap(vector.arr, i, i + 1);
         }
     }
