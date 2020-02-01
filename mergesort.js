@@ -1,55 +1,57 @@
-function merge(a, b){
-  var tmp = new Array()
-  var c = new Array(a.length + b.length);
-  var ia = 0;
-  var ib = 0;
-  var ic = 0;
-  while (ia < a.length && ib < b.length){
-    if (a[ia] <= b[ib]){
-      c[ic] = a[ia];
+async function merge(vector, low, m, high){
+  vector.setBackcolor(low, high, BLUE);
+  let n1 = m - low + 1;
+  let n2 = high - m;
+  let ia = 0;
+  let ib = 0;
+  let ic = low;
+
+  let leftArr = new Array(n1);
+  let rightArr = new Array(n2);
+
+  for (let i = 0; i < n1; i++){
+    leftArr[i] = vector.arr[low + i].value;
+  }
+  for (let i = 0; i < n2; i++){
+    rightArr[i] = vector.arr[m + 1 + i].value;
+  }
+
+  while (ia < n1 && ib < n2){
+    await sleep(delayInMilliSec);
+    if (leftArr[ia] <= rightArr[ib]){
+      vector.arr[ic].value = leftArr[ia];
       ia++;
-      ic++;
     }
     else{
-      c[ic] = b[ib];
+      vector.arr[ic].value = rightArr[ib];
       ib++;
-      ic++;
     }
+    ic++;
   }
-  while (ia < a.length){
-    c[ic] = a[ia];
+  while (ia < leftArr.length){
+    await sleep(delayInMilliSec);
+    vector.arr[ic].value = leftArr[ia];
     ia++;
     ic++;
   }
-  while (ib < b.length){
-    c[ic] = b[ib];
+  while (ib < rightArr.length){
+    await sleep(delayInMilliSec);
+    vector.arr[ic].value = rightArr[ib];
     ib++;
     ic++;
   }
-  return c;
 }
 
-function mergeSortAux(arr, n, low, high){
-  if (high <= low){
-    return arr;
+async function mergeSortAux(vector, low, high){
+  if (low >= high){
+    return;
   }
-  // var n1 = floor(n / 2);
-  // var n2 = n - n1;
   let m = floor((low + high) / 2);
-  let n1 = m + 1;
-  let n2 = n - n1;
-  // var a = mergeSortAux(arr.splice(0, n1), n1, low, n1 - 1);
-  let a = mergeSortAux(arr, n1, low, m);
-  console.log(a);
-  // var b = mergeSortAux(arr.splice(n1, n2), n2, n1, high);
-  let b = mergeSortAux(arr, n2, m + 1, high);
-  console.log(b);
-  let c = merge(a, b);
-  console.log(c);
-  console.log("-------------------------");
-  return c;
+  await mergeSortAux(vector, low, m);
+  await mergeSortAux(vector, m + 1, high);
+  await merge(vector, low, m, high);
 }
 
-function mergeSort(arr){
-  arr = mergeSortAux(arr, arr.length, 0, arr.length - 1)
+async function mergeSort(vector){
+  await mergeSortAux(vector, 0, vector.length() - 1);
 }

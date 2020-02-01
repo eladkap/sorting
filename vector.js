@@ -25,14 +25,28 @@ class Vector{
     }
   }
 
+  getValues(){
+    let values = [];
+    for (let i = 0; i < this.arr.length; i++){
+      values.push(this.arr[i].value);
+    }
+    return values;
+  }
+
+  setValues(values){
+    for (let i = 0; i < this.length(); i++){
+      this.arr[i].setValue(values[i]);
+    }
+  }
+
   shuffle(){
     this.sorted = false;
     for (var k = 0; k < this.arr.length * 3; k++) {
       var i = floor(random(0, this.arr.length));
       var j = floor(random(0, this.arr.length));
-      var tmp = this.arr[i].data;
-      this.arr[i].data = this.arr[j].data;
-      this.arr[j].data = tmp;
+      var tmp = this.arr[i].value;
+      this.arr[i].value = this.arr[j].value;
+      this.arr[j].value = tmp;
     }
   }
 
@@ -55,5 +69,9 @@ class Vector{
     for (let i = start; i <= end; i++) {
       this.arr[i].setBackcolor(col);
     }
+  }
+
+  copy(){
+    return new Vector(this.x, this.y, this.pos, this.arr.length);
   }
 }

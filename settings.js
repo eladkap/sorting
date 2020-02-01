@@ -36,7 +36,7 @@ const VECTOR_WIDTH = 1000;
 const MAX_VALUE = 400;
 
 /* DELAY IN MILLISEC */
-const MIN_DELAY_IN_MS = 1;
+const MIN_DELAY_IN_MS = 10;
 const MAX_DELAY_IN_MS = 300;
 
 /* FONT */

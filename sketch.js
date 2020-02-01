@@ -105,6 +105,10 @@ async function startSort(){
 		console.log('Run QuickSort')
 		await quickSort(vector);
 	}
+	else if (sortAlgo == 'MergeSort'){
+		console.log('Run MergeSort')
+		await mergeSort(vector);
+	} 
 }
 
 
