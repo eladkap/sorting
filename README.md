@@ -8,4 +8,4 @@ Sorting Visualization is a JavaScript application that simulates sorting algorit
 - Object Oriented Programming
 - Async-Await Mechanism
 ### Launch
-- Run index.html from any browser (Chrome/Edge/Explorer)
+- Go to URL: https://eladkap.github.io/sorting
