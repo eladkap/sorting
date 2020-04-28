@@ -4,6 +4,7 @@ var control;
 var btnSort;
 var btnReset;
 var btnGenerate;
+var btnReverse;
 
 var sliderArraySize;
 var selectorSorting;
@@ -70,6 +71,11 @@ function setButtons() {
     "Generate Array",
     generateArray
   );
+  //   btnReverse = setButton(
+  //     createVector(SCREEN_WIDTH * 0.8, HEADER_HEIGHT / 2),
+  //     "Reverse Array",
+  //     reverseArray
+  //   );
 }
 
 function setEnabled(btn, value) {
@@ -173,4 +179,11 @@ async function runSort() {
 function generateArray() {
   print("generate array");
   setVector();
+}
+
+function reverseArray() {
+  let n = vector.length();
+  for (let i = 0; i < floor(n / 2); i++) {
+    swap(vector.arr, i, n - i - 1);
+  }
 }
