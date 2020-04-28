@@ -40,7 +40,7 @@ function setVector() {
   vector = new Vector(
     VECTOR_POS_X,
     VECTOR_POS_Y,
-    VECTOR_WIDTH,
+    SCREEN_WIDTH * 0.8,
     sliderArraySize.value()
   );
   delayInMilliSec = map(
@@ -89,7 +89,7 @@ function setSlider(pos, minValue, maxValue, value, step, inputAction) {
 
 function setSliders() {
   sliderArraySize = setSlider(
-    createVector(SCREEN_WIDTH * 0.2, HEADER_HEIGHT / 2),
+    createVector(SCREEN_WIDTH * 0.2, HEADER_HEIGHT * 0.5),
     4,
     MAX_ELEMENTS_NUM,
     8,
@@ -136,6 +136,9 @@ async function startSort() {
   } else if (sortAlgo == "MergeSort") {
     console.log("Run MergeSort");
     await mergeSort(vector);
+  } else if (sortAlgo == "HeapSort") {
+    console.log("Run HeapSort");
+    await heapSort(vector);
   }
 }
 

@@ -1,8 +1,8 @@
-function bubbleSort(arr){
+function bubbleSort(arr) {
   var n = arr.length;
   for (var k = n - 2; k >= 0; k--) {
     for (var i = 0; i <= k; i++) {
-      if (arr[i] > arr[i + 1]){
+      if (arr[i] > arr[i + 1]) {
         var tmp = arr[i];
         arr[i] = arr[i + 1];
         arr[i + 1] = tmp;
@@ -11,30 +11,29 @@ function bubbleSort(arr){
   }
 }
 
-function merge(a, b){
-  var tmp = new Array()
+function merge(a, b) {
+  var tmp = new Array();
   var c = new Array(a.length + b.length);
   var ia = 0;
   var ib = 0;
   var ic = 0;
-  while (ia < a.length && ib < b.length){
-    if (a[ia] <= b[ib]){
+  while (ia < a.length && ib < b.length) {
+    if (a[ia] <= b[ib]) {
       c[ic] = a[ia];
       ia++;
       ic++;
-    }
-    else{
+    } else {
       c[ic] = b[ib];
       ib++;
       ic++;
     }
   }
-  while (ia < a.length){
+  while (ia < a.length) {
     c[ic] = a[ia];
     ia++;
     ic++;
   }
-  while (ib < b.length){
+  while (ib < b.length) {
     c[ic] = b[ib];
     ib++;
     ic++;
@@ -42,8 +41,8 @@ function merge(a, b){
   return c;
 }
 
-function mergeSortAux(arr, n, low, high){
-  if (high <= low){
+function mergeSortAux(arr, n, low, high) {
+  if (high <= low) {
     return arr;
   }
   // var n1 = floor(n / 2);
@@ -63,6 +62,6 @@ function mergeSortAux(arr, n, low, high){
   return c;
 }
 
-function mergeSort(arr){
-  arr = mergeSortAux(arr, arr.length, 0, arr.length - 1)
+function mergeSort(arr) {
+  arr = mergeSortAux(arr, arr.length, 0, arr.length - 1);
 }

@@ -1,45 +1,52 @@
-class Vector{
-  constructor(x, y, w, size){
+class Vector {
+  constructor(x, y, w, size) {
     this.pos = createVector(x, y);
     this.arr = new Array(size);
     this.w = w;
     this.generate(size);
   }
 
-  length(){
+  length() {
     return this.arr.length;
   }
 
-  elements(){
+  elements() {
     return this.arr;
   }
 
-  at(i){
+  at(i) {
     return this.arr[i];
   }
 
-  generate(){
+  generate() {
     let elementWidth = this.w / this.arr.length;
     for (var i = 0; i < this.arr.length; i++) {
-    		this.arr[i] = new Element(this.pos.x + i * elementWidth, this.pos.y, i, elementWidth, floor(random(MAX_VALUE)), TURQUOISELIGHT);
+      this.arr[i] = new Element(
+        this.pos.x + i * elementWidth,
+        this.pos.y,
+        i,
+        elementWidth,
+        floor(random(MAX_VALUE)),
+        TURQUOISELIGHT
+      );
     }
   }
 
-  getValues(){
+  getValues() {
     let values = [];
-    for (let i = 0; i < this.arr.length; i++){
+    for (let i = 0; i < this.arr.length; i++) {
       values.push(this.arr[i].value);
     }
     return values;
   }
 
-  setValues(values){
-    for (let i = 0; i < this.length(); i++){
+  setValues(values) {
+    for (let i = 0; i < this.length(); i++) {
       this.arr[i].setValue(values[i]);
     }
   }
 
-  shuffle(){
+  shuffle() {
     this.sorted = false;
     for (var k = 0; k < this.arr.length * 3; k++) {
       var i = floor(random(0, this.arr.length));
@@ -50,28 +57,28 @@ class Vector{
     }
   }
 
-  isSorted(){
+  isSorted() {
     for (var i = 0; i < this.arr.length - 1; i++) {
-      if (this.arr[i].value > this.arr[i + 1].value){
+      if (this.arr[i].value > this.arr[i + 1].value) {
         return false;
       }
     }
     return true;
   }
 
-  draw(){
+  draw() {
     for (let element of this.arr) {
       element.draw();
     }
   }
 
-  setBackcolor(start, end, col){
+  setBackcolor(start, end, col) {
     for (let i = start; i <= end; i++) {
       this.arr[i].setBackcolor(col);
     }
   }
 
-  copy(){
+  copy() {
     return new Vector(this.x, this.y, this.pos, this.arr.length);
   }
 }
