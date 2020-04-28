@@ -1,5 +1,5 @@
-class Element{
-  constructor(x, y, index, w, value, backColor){
+class Element {
+  constructor(x, y, index, w, value, backColor) {
     this.pos = createVector(x, y);
     this.index = index;
     this.w = w;
@@ -7,13 +7,13 @@ class Element{
     this.backColor = backColor;
   }
 
-  draw(){
+  draw() {
     strokeWeight(0);
     stroke(BLACK);
     fill(this.backColor);
     rect(this.pos.x - this.w / 2, this.pos.y, this.w, this.value);
-    
-    if (vector.length() < 16){
+
+    if (vector.length() < 16) {
       fill(BLACK);
       textAlign(CENTER);
       textStyle(NORMAL);
@@ -22,15 +22,15 @@ class Element{
     }
   }
 
-  setValue(value){
+  setValue(value) {
     this.value = value;
   }
 
-  getIndex(){
+  getIndex() {
     return this.index;
   }
 
-  setBackcolor(backColor){
+  setBackcolor(backColor) {
     this.backColor = backColor;
   }
 }

@@ -49,10 +49,4 @@ const FONT_FACTOR = 1;
 /* CONTROL */
 const HEADER_HEIGHT = 100;
 
-const SORTING_TYPES = [
-  "BubbleSort",
-  "MaxSort",
-  "HeapSort",
-  "QuickSort",
-  "MergeSort",
-];
+const SORTING_TYPES = ["BubbleSort", "HeapSort", "QuickSort", "MergeSort"];
