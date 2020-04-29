@@ -32,7 +32,7 @@ const MAX_ELEMENTS_NUM = 128;
 const VECTOR_POS_X = 200;
 const VECTOR_POS_Y = 200;
 const VECTOR_WIDTH = 1000;
-const MAX_VALUE = 400;
+const MAX_VALUE = 500;
 
 /* DELAY IN MILLISEC */
 const MIN_DELAY_IN_MS = 10;

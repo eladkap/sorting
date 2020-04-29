@@ -11,7 +11,7 @@ async function heapify(vector, n, i) {
     largest = right;
   }
 
-  vector.setBackcolor(0, n - 1, TURQUOISELIGHT);
+  vector.setBackcolor(0, i - 1, TURQUOISELIGHT); // n-1
   vector.arr[i].setBackcolor(YELLOW);
   vector.arr[largest].setBackcolor(YELLOW);
   if (largest != i) {
@@ -32,6 +32,7 @@ async function extractElements(vector) {
   let n = vector.length();
   for (let i = n - 1; i >= 1; i--) {
     swap(vector.arr, i, 0);
+    vector.arr[i].setBackcolor(PURPLE);
     await heapify(vector, i, 0);
   }
 }

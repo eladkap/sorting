@@ -145,6 +145,9 @@ async function startSort() {
   } else if (sortAlgo == "HeapSort") {
     console.log("Run HeapSort");
     await heapSort(vector);
+  } else if (sortAlgo == "RadixSort") {
+    console.log("Run RadixSort");
+    await radixSort(vector);
   }
 }
 
