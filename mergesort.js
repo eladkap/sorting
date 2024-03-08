@@ -17,7 +17,7 @@ async function merge(vector, low, m, high) {
   }
 
   while (ia < n1 && ib < n2) {
-    await sleep(delayInMilliSec);
+    await Utils.sleep(delayInMilliSec);
     if (leftArr[ia] <= rightArr[ib]) {
       vector.arr[ic].value = leftArr[ia];
       ia++;
@@ -28,13 +28,13 @@ async function merge(vector, low, m, high) {
     ic++;
   }
   while (ia < leftArr.length) {
-    await sleep(delayInMilliSec);
+    await Utils.sleep(delayInMilliSec);
     vector.arr[ic].value = leftArr[ia];
     ia++;
     ic++;
   }
   while (ib < rightArr.length) {
-    await sleep(delayInMilliSec);
+    await Utils.sleep(delayInMilliSec);
     vector.arr[ic].value = rightArr[ib];
     ib++;
     ic++;

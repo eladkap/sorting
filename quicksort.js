@@ -7,14 +7,14 @@ async function partition(vector, start, end) {
 
   for (let i = start; i < end; i++) {
     if (vector.arr[i].value < pivotValue) {
-      await sleep(delayInMilliSec);
-      swap(vector.arr, i, pivotIndex);
+      await Utils.sleep(delayInMilliSec);
+      Utils.swap(vector.arr, i, pivotIndex);
       vector.arr[pivotIndex].setBackcolor(TURQUOISELIGHT);
       pivotIndex++;
       vector.arr[pivotIndex].setBackcolor(BLUE);
     }
   }
-  swap(vector.arr, pivotIndex, end);
+  Utils.swap(vector.arr, pivotIndex, end);
 
   for (let i = start; i < end; i++) {
     if (i != pivotIndex) {

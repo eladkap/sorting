@@ -168,9 +168,9 @@ async function finishSort() {
 async function markVecorSorted() {
   for (let i = 0; i < vector.length(); i++) {
     vector.arr[i].setBackcolor(GREEN);
-    await sleep(delayInMilliSec);
+    await Utils.sleep(delayInMilliSec);
   }
-  await sleep(1000);
+  await Utils.sleep(1000);
   vector.setBackcolor(0, vector.length() - 1, TURQUOISELIGHT);
 }
 
@@ -187,6 +187,6 @@ function generateArray() {
 function reverseArray() {
   let n = vector.length();
   for (let i = 0; i < floor(n / 2); i++) {
-    swap(vector.arr, i, n - i - 1);
+    Utils.swap(vector.arr, i, n - i - 1);
   }
 }

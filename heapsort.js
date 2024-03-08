@@ -15,8 +15,8 @@ async function heapify(vector, n, i) {
   vector.arr[i].setBackcolor(YELLOW);
   vector.arr[largest].setBackcolor(YELLOW);
   if (largest != i) {
-    await sleep(delayInMilliSec);
-    swap(vector.arr, i, largest);
+    await Utils.sleep(delayInMilliSec);
+    Utils.swap(vector.arr, i, largest);
     await heapify(vector, n, largest);
   }
 }
@@ -31,7 +31,7 @@ async function createMaxHeap() {
 async function extractElements(vector) {
   let n = vector.length();
   for (let i = n - 1; i >= 1; i--) {
-    swap(vector.arr, i, 0);
+    Utils.swap(vector.arr, i, 0);
     vector.arr[i].setBackcolor(PURPLE);
     await heapify(vector, i, 0);
   }
