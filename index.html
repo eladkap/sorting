@@ -1,19 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Sorting Visualization</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
-    <script src="mergesort.js"></script>
-    <script src="bubblesort.js"></script>
-    <script src="quicksort.js"></script>
-    <script src="heapsort.js"></script>
-    <script src="radixsort.js"></script>
-    <script src="element.js"></script>
-    <script src="vector.js"></script>
-    <script src="control.js"></script>
-    <script src="settings.js"></script>
-    <script src="utils.js"></script>
-    <script src="sketch.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/stylesheet.css'>
   </head>
-  <body></body>
+  <body>
+
+    <div class="container-left">
+      <h2>Sorting Visualizer</h2>
+    </div>
+
+    <div style="display: flex; justify-content: space-around;">
+        
+      <div style="display: block; margin: 2rem">
+          <ul>
+            <li>
+              <button id="btn-generate-arr" onclick="generateArray()">Generate array</button>
+            </li>
+            <li>
+              <button id="btn-reverse-arr" onclick="reverseArray()">Reverse array</button>
+            </li>
+            <li>
+              <label for="sort-selector">Sorting algo</label>
+              <select name="sort-selector" id="sort-selector" onchange="chooseSortOption(event)">
+                <option value="BubbleSort">BubbleSort</option>
+                <option value="HeapSort">HeapSort</option>
+                <option value="QuickSort">QuickSort</option>
+                <option value="MergeSort">MergeSort</option>
+              </select>
+            </li>
+            <li>
+              <label for="sort-selector">Array size</label>
+              
+              <input type="range" min="4" max="64" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)">
+            </li>
+            <li>
+              <button id="btn-sort-arr" onclick="runSort()">Sort</button>
+            </li>
+          </ul>
+      </div>
+  
+      <div style="display: block; margin: 4rem">
+          <canvas id="my-canvas" class="my-canvas">
+          </canvas>
+      </div>
+      
+    </div>
+
+    <script src="js/lib/vector.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/mergesort.js"></script>
+    <script src="js/bubblesort.js"></script>
+    <script src="js/quicksort.js"></script>
+    <script src="js/heapsort.js"></script>
+    <script src="js/element.js"></script>
+    <script src="js/array.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
