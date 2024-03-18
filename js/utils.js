@@ -27,5 +27,12 @@ class Utils {
   static randomRange(a, b) {
     return Math.random() * (b - a) + a;
   }
+
+  static transformlValue(a, b, x, y, val) {
+    /**
+     * Transform value from range [a,b] to range [x,y]
+     */
+    return Math.round(((val - a) * (y - x)) / (b - a) + x);
+  }
 }
 

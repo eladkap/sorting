@@ -35,7 +35,7 @@
             <li>
               <label for="sort-selector">Array size</label>
               
-              <input type="range" min="4" max="64" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)">
+              <input type="range" min="4" max="128" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)">
             </li>
             <li>
               <button id="btn-sort-arr" onclick="runSort()">Sort</button>
@@ -47,7 +47,6 @@
           <canvas id="my-canvas" class="my-canvas">
           </canvas>
       </div>
-      
     </div>
 
     <script src="js/lib/vector.js"></script>
@@ -58,7 +57,6 @@
     <script src="js/heapsort.js"></script>
     <script src="js/element.js"></script>
     <script src="js/array.js"></script>
-    <script src="js/control.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
   </body>

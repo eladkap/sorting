@@ -14,19 +14,12 @@ var sortSelector;
 var arraySizeSlider;
 
 var sortAlgo;
-// var fps = FPS;
 var delayInMilliSec = MIN_DELAY_IN_MS;
 
 function setup() {
   setButtons();
   setSortSelector();
   setArraySizeSlider();
-
-  // SCREEN_WIDTH = windowWidth;
-  // SCREEN_HEIGHT = windowHeight;
-  // createCanvas(SCREEN_WIDTH, SCREEN_HEIGHT);
-  // frameRate(fps);
-  
   setSortAlgo();
   setArray();
   draw();
@@ -58,6 +51,9 @@ function setArray() {
     canvasRect.height * 0.8,
     arraySize
   );
+  // todo: set delayInMilliSec between MIN_DEALY_MS to MAX_DELAY_MS proportional to array size
+  delayInMilliSec = MIN_DELAY_IN_MS + MAX_DELAY_IN_MS - Utils.transformlValue(MIN_ARRAY_SIZE, MAX_ARRAY_SIZE, MIN_DELAY_IN_MS, MAX_DELAY_IN_MS, arraySize);
+  console.log(delayInMilliSec);
   updateCanvas();
 }
 

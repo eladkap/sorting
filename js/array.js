@@ -83,6 +83,6 @@ class MyArray {
   }
 
   copy() {
-    return new Array(this.x, this.y, this.pos, this.arr.length);
+    return new MyArray(this.x, this.y, this.pos, this.arr.length);
   }
 }

@@ -2,8 +2,6 @@
 var CANVAS_WIDTH = 1280;
 var CANVAS_HEIGHT = 600;
 
-const FPS = 30;
-
 /* COLORS */
 const BLACK = 'rgb(0, 0, 0)';
 const GRAY1 = 'rgb(50, 50, 50)';
@@ -20,23 +18,23 @@ const PINK = 'rgb(255, 120, 255)';
 const PURPLE = 'rgb(255, 0, 255)';
 const BLUEHEAVY = 'rgb(50, 50, 205)';
 const BLUE = 'rgb(50, 50, 255)';
-const BLUELIGHT = 'rgb([100, 100, 255)';
+const BLUELIGHT = 'rgb(100, 100, 255)';
 const BROWN = 'rgb(128, 64, 0)';
 const BROWNLIGHT = 'rgb(230, 115, 0)';
 const TURQUOISE = 'rgb(32, 114, 106)';
 const TURQUOISELIGHT = 'rgb(50, 180, 166)';
 
 /* ARRAY */
-const MIN_ELEMENTS_NUM = 4;
-const MAX_ELEMENTS_NUM = 128;
+const MIN_ARRAY_SIZE = 4;
+const MAX_ARRAY_SIZE = 128;
 const ARRAY_POS_X = 200;
 const ARRAY_POS_Y = 200;
 const ARRAY_WIDTH = 1000;
 const MAX_VALUE = 500;
 
 /* DELAY IN MILLISEC */
-const MIN_DELAY_IN_MS = 50;
-const MAX_DELAY_IN_MS = 500;
+const MIN_DELAY_IN_MS = 10;
+const MAX_DELAY_IN_MS = 100;
 
 /* FONT */
 const FONT_FAMILY = "Copperplate Gothic Light"; // 'Bodoni MT Black'
@@ -45,6 +43,3 @@ const FONT_SIZE2 = 20;
 const FONT_SIZE3 = 24;
 const FONT_SIZE4 = 28;
 const FONT_FACTOR = 1;
-
-/* CONTROL */
-const HEADER_HEIGHT = 100;
