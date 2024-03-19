@@ -1,8 +1,8 @@
 class Element {
-  constructor(x, y, index, w, value, backColor) {
+  constructor(x, y, index, width, value, backColor) {
     this.pos = new Vector(x, y);
     this.index = index;
-    this.w = w;
+    this.width = width;
     this.value = value;
     this.backColor = backColor;
   }
@@ -11,7 +11,7 @@ class Element {
     ctx.beginPath();
     ctx.strokeStyle = 'black';
     ctx.fillStyle = this.backColor;
-    ctx.rect(this.pos.x - this.w / 2, this.pos.y, this.w, this.value);
+    ctx.rect(this.pos.x, this.pos.y, this.width, this.value);
     ctx.stroke();
     ctx.fill();
   }

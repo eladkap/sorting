@@ -1,10 +1,6 @@
 var canvas = document.getElementById('my-canvas');
 var ctx = canvas.getContext('2d');
 
-canvas.width = CANVAS_WIDTH; // window.innerWidth;
-canvas.height = CANVAS_HEIGHT; // window.innerHeight;
-
-
 /* Global Variables */
 var array;
 var btnGenerate;
@@ -33,9 +29,16 @@ function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+function drawDot() {
+  let canvasRect = canvas.getBoundingClientRect();
+  ctx.fillStyle = 'red';
+  ctx.fillRect(canvasRect.x - X_OFFSET, canvasRect.y - Y_OFFSET, 3, 3); 
+}
+
 function updateCanvas() {
   clearCanvas();
   array.draw();
+  // drawDot();
 }
 
 function setSortAlgo() {
@@ -45,13 +48,13 @@ function setSortAlgo() {
 function setArray() {
   let canvasRect = canvas.getBoundingClientRect();
   let arraySize = Number(arraySizeSlider.value);
+  let elementWidth = canvasRect.width / arraySize;
   array = new MyArray(
-    canvasRect.x,
-    canvasRect.y,
-    canvasRect.height * 0.8,
+    canvasRect.x - X_OFFSET,
+    canvasRect.y - Y_OFFSET,
+    elementWidth,
     arraySize
   );
-  // todo: set delayInMilliSec between MIN_DEALY_MS to MAX_DELAY_MS proportional to array size
   delayInMilliSec = MIN_DELAY_IN_MS + MAX_DELAY_IN_MS - Utils.transformlValue(MIN_ARRAY_SIZE, MAX_ARRAY_SIZE, MIN_DELAY_IN_MS, MAX_DELAY_IN_MS, arraySize);
   console.log(delayInMilliSec);
   updateCanvas();

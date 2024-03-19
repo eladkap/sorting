@@ -1,8 +1,8 @@
 class MyArray {
-  constructor(x, y, w, size) {
+  constructor(x, y, width, size) {
     this.pos = new Vector(x, y);
     this.arr = new Array(size);
-    this.w = w;
+    this.width = width;
     this.generate(size);
   }
 
@@ -23,13 +23,12 @@ class MyArray {
   }
 
   generate() {
-    let elementWidth = this.w / this.arr.length;
     for (var i = 0; i < this.arr.length; i++) {
       this.arr[i] = new Element(
-        this.pos.x + i * elementWidth,
+        this.pos.x + i * this.width,
         this.pos.y,
         i,
-        elementWidth,
+        this.width,
         Math.floor(Utils.randomRange(0, MAX_VALUE)),
         TURQUOISELIGHT
       );
