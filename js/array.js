@@ -30,7 +30,8 @@ class MyArray {
         i,
         this.width,
         Math.floor(Utils.randomRange(0, MAX_VALUE)),
-        TURQUOISELIGHT
+        TURQUOISELIGHT,
+        this.arr.length
       );
     }
   }

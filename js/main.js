@@ -41,7 +41,7 @@ function drawDot() {
 function updateCanvas() {
   clearCanvas();
   array.draw();
-  drawDot();
+  // drawDot();
 }
 
 function setSortAlgo() {

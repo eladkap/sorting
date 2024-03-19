@@ -58,7 +58,7 @@ ul li {
 }
 
 ul button {
-    font-size: large;
+    font-size: medium;
     background-color: var(--btn-backcolor);
     color: var(--btn-forecolor);
     padding: 15px;
@@ -74,18 +74,21 @@ ul button:hover {
 
 label {
     font-family: sans-serif;
-    font-size: large;
+    font-size: medium;
     padding-right: 10px;
     color: var(--text-color);
+    padding-top: 1rem;
 }
 
 select {
     background-color: var(--btn-backcolor);
     color: var(--btn-forecolor);
-    font-size: large;
+    font-size: medium;
+    margin-top: 1rem;
 }
 
 .array-size-slider  {
     background: var(--btn-backcolor);
     color: var(--btn-forecolor);
+    margin-top: 1rem;
 }
