@@ -6,8 +6,8 @@ async function merge(array, low, m, high) {
   let ib = 0;
   let ic = low;
 
-  let leftArr = new MyArray(n1);
-  let rightArr = new MyArray(n2);
+  let leftArr = new Array(n1);
+  let rightArr = new Array(n2);
 
   for (let i = 0; i < n1; i++) {
     leftArr[i] = array.arr[low + i].value;

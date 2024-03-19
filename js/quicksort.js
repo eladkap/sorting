@@ -30,17 +30,17 @@ async function quickSortAux(array, start, end) {
     return;
   }
   let index = await partition(array, start, end);
-  //array.arr[index].setBackcolor(BLUE);
+  // array.arr[index].setBackcolor(BLUE);
 
   // Perform quicksort on both sub-arrays in parallel
-
   await Promise.all([
     quickSortAux(array, start, index - 1),
     quickSortAux(array, index + 1, end),
   ]);
 
-  //await quickSort(array, start, index - 1);
-  //await quickSort(array, index + 1, end);
+  // Perform quicksort in sequence - left sub-array and then the right sub-array
+  // await quickSort(array, start, index - 1);
+  // await quickSort(array, index + 1, end);
 }
 
 async function quickSort(array) {
