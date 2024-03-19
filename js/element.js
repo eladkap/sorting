@@ -16,7 +16,7 @@ class Element {
     ctx.stroke();
     ctx.fill();
 
-    if (this.arrSize <= 16) {
+    if (this.arrSize <= MIN_ARRAY_SIZE_SHOW_VALUES) {
       ctx.font = '20px Arial';
       ctx.textAlign = 'center'; 
       ctx.fillStyle = 'white';

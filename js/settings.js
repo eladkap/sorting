@@ -30,6 +30,7 @@ const ARRAY_POS_X = 200;
 const ARRAY_POS_Y = 200;
 const ARRAY_WIDTH = 1000;
 const MAX_VALUE = 500;
+const MIN_ARRAY_SIZE_SHOW_VALUES = 16;
 
 /* DELAY IN MILLISEC */
 const MIN_DELAY_IN_MS = 10;
