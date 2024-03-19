@@ -7,7 +7,6 @@ async function bubble(array, k) {
     if (array.get(i).value > array.get(i + 1).value) {
       Utils.swap(array.arr, i, i + 1);
     }
-    console.log(array.values());
   }
 }
 
