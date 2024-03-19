@@ -1,6 +1,9 @@
 var canvas = document.getElementById('my-canvas');
 var ctx = canvas.getContext('2d');
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
 /* Global Variables */
 var array;
 var btnGenerate;
@@ -32,13 +35,13 @@ function clearCanvas() {
 function drawDot() {
   let canvasRect = canvas.getBoundingClientRect();
   ctx.fillStyle = 'red';
-  ctx.fillRect(canvasRect.x - X_OFFSET, canvasRect.y - Y_OFFSET, 3, 3); 
+  ctx.fillRect(canvasRect.x, canvasRect.y, 3, 3); 
 }
 
 function updateCanvas() {
   clearCanvas();
   array.draw();
-  // drawDot();
+  drawDot();
 }
 
 function setSortAlgo() {
@@ -50,8 +53,8 @@ function setArray() {
   let arraySize = Number(arraySizeSlider.value);
   let elementWidth = canvasRect.width / arraySize;
   array = new MyArray(
-    canvasRect.x - X_OFFSET,
-    canvasRect.y - Y_OFFSET,
+    canvasRect.x,
+    canvasRect.y,
     elementWidth,
     arraySize
   );

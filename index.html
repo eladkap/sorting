@@ -9,44 +9,38 @@
   </head>
   <body>
 
-    <div class="container-left">
+    <div class="navbar">
       <h2>Sorting Visualizer</h2>
+      <ul>
+        <li>
+          <button id="btn-generate-arr" onclick="generateArray()">Generate array</button>
+        </li>
+        <li>
+          <button id="btn-reverse-arr" onclick="reverseArray()">Reverse array</button>
+        </li>
+        <li>
+          <label for="sort-selector">Sorting algo</label>
+          <select name="sort-selector" id="sort-selector" onchange="chooseSortOption(event)">
+            <option value="BubbleSort">BubbleSort</option>
+            <option value="HeapSort">HeapSort</option>
+            <option value="QuickSort">QuickSort</option>
+            <option value="MergeSort">MergeSort</option>
+          </select>
+        </li>
+        <li>
+          <label for="sort-selector">Array size</label>
+          
+          <input type="range" min="4" max="128" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)">
+        </li>
+        <li>
+          <button id="btn-sort-arr" onclick="runSort()">Sort</button>
+        </li>
+      </ul>
     </div>
-
-    <div style="display: flex; justify-content: space-around;">
-        
-      <div style="display: block; margin: 2rem">
-          <ul>
-            <li>
-              <button id="btn-generate-arr" onclick="generateArray()">Generate array</button>
-            </li>
-            <li>
-              <button id="btn-reverse-arr" onclick="reverseArray()">Reverse array</button>
-            </li>
-            <li>
-              <label for="sort-selector">Sorting algo</label>
-              <select name="sort-selector" id="sort-selector" onchange="chooseSortOption(event)">
-                <option value="BubbleSort">BubbleSort</option>
-                <option value="HeapSort">HeapSort</option>
-                <option value="QuickSort">QuickSort</option>
-                <option value="MergeSort">MergeSort</option>
-              </select>
-            </li>
-            <li>
-              <label for="sort-selector">Array size</label>
-              
-              <input type="range" min="4" max="128" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)">
-            </li>
-            <li>
-              <button id="btn-sort-arr" onclick="runSort()">Sort</button>
-            </li>
-          </ul>
-      </div>
   
-      <div style="display: block; margin: 4rem">
-          <canvas id="my-canvas" class="my-canvas" width="1280" height="600">
-          </canvas>
-      </div>
+    <div style="display: block; margin: 0rem;">
+        <canvas id="my-canvas" class="my-canvas">
+        </canvas>
     </div>
 
     <script src="js/lib/vector.js"></script>

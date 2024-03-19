@@ -1,9 +1,5 @@
-/* SCREEN */
-
-
 /* CANVAS */
-const X_OFFSET = 400;
-const Y_OFFSET = 130;
+
 
 /* COLORS */
 const BLACK = 'rgb(0, 0, 0)';

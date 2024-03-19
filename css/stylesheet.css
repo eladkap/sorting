@@ -31,20 +31,25 @@ h1, h2, h3, h4, h5 {
     padding-left: 4rem;
 }
 
+.navbar {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 ul {
-    list-style: none;
+    list-style-type: none;
     display: list-item;
     align-items: center;
     justify-content: space-evenly;
-    width: auto;
-    /* background: var(--btn-backcolor); */
-    /* backdrop-filter: blur(10px); */
-    border-radius: 10px;
+    overflow: hidden;
     transition: height .2 cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1;
 }
 
 ul li {
+    float: left;
     font-size: 48px;
     padding: 1rem;
     display: flex;
@@ -53,13 +58,13 @@ ul li {
 }
 
 ul button {
-    font-size: small;
+    font-size: large;
     background-color: var(--btn-backcolor);
     color: var(--btn-forecolor);
     padding: 15px;
     display: block;
     text-align: center;
-    width: 8rem;
+    min-width: 10rem;
 }
 
 /* ul button:hover {
