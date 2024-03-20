@@ -136,8 +136,8 @@ class Application {
         }
         else {
           await this.startSort();
+          this.finishSort();
         }
-        this.finishSort();
     }
 
     stopSorting() {
