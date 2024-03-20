@@ -157,6 +157,10 @@ async function runSort() {
   finishSort();
 }
 
+function stopSorting() {
+  location.reload();
+}
+
 function generateArray() {
   setArray();
 }
