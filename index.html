@@ -13,14 +13,14 @@
       <h2>Sorting Visualizer</h2>
       <ul>
         <li>
-          <button id="btn-generate-arr" onclick="generateArray()">Generate array</button>
+          <button id="btn-generate-arr" onclick="app.generateArray()">Generate array</button>
         </li>
         <li>
-          <button id="btn-reverse-arr" onclick="reverseArray()">Reverse array</button>
+          <button id="btn-reverse-arr" onclick="app.reverseArray()">Reverse array</button>
         </li>
         <li>
           <label for="sort-selector">Sorting algo</label>
-          <select name="sort-selector" id="sort-selector" onchange="chooseSortOption(event)">
+          <select name="sort-selector" id="sort-selector" onchange="app.chooseSortOption(event)">
             <option value="BubbleSort">BubbleSort</option>
             <option value="HeapSort">HeapSort</option>
             <option value="QuickSort">QuickSort</option>
@@ -30,14 +30,14 @@
         <li>
           <label for="sort-selector">Array size</label>
           
-          <input type="range" min="4" max="128" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)"
-            oninput="chooseArraySize(this.value)">
+          <input type="range" min="4" max="128" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="app.chooseArraySize(this.value)"
+            oninput="app.chooseArraySize(this.value)">
         </li>
         <li>
-          <button id="btn-sort-arr" onclick="runSort()">Sort</button>
+          <button id="btn-sort-arr" onclick="app.runSort()">Sort</button>
         </li>
         <li>
-          <button id="btn-sort-arr" onclick="stopSorting()">Stop</button>
+          <button id="btn-sort-arr" onclick="app.stopSorting()">Stop</button>
         </li>
       </ul>
     </div>
@@ -56,6 +56,7 @@
     <script src="js/element.js"></script>
     <script src="js/array.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

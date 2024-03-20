@@ -17,7 +17,7 @@ async function merge(array, low, m, high) {
   }
 
   while (ia < n1 && ib < n2) {
-    await Utils.sleep(delayInMilliSec);
+    await Utils.sleep(app.delayInMilliSec);
     if (leftArr[ia] <= rightArr[ib]) {
       array.arr[ic].value = leftArr[ia];
       ia++;
@@ -28,13 +28,13 @@ async function merge(array, low, m, high) {
     ic++;
   }
   while (ia < leftArr.length) {
-    await Utils.sleep(delayInMilliSec);
+    await Utils.sleep(app.delayInMilliSec);
     array.arr[ic].value = leftArr[ia];
     ia++;
     ic++;
   }
   while (ib < rightArr.length) {
-    await Utils.sleep(delayInMilliSec);
+    await Utils.sleep(app.delayInMilliSec);
     array.arr[ic].value = rightArr[ib];
     ib++;
     ic++;

@@ -1,6 +1,6 @@
 async function bubble(array, k) {
   for (let i = 0; i < k; i++) {
-    await Utils.sleep(delayInMilliSec);
+    await Utils.sleep(app.delayInMilliSec);
     array.setBackcolor(0, k, TURQUOISELIGHT);
     array.arr[i].setBackcolor(YELLOW);
     array.arr[i + 1].setBackcolor(YELLOW);

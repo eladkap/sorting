@@ -15,13 +15,13 @@ async function heapify(array, n, i) {
   array.arr[i].setBackcolor(YELLOW);
   array.arr[largest].setBackcolor(YELLOW);
   if (largest != i) {
-    await Utils.sleep(delayInMilliSec);
+    await Utils.sleep(app.delayInMilliSec);
     Utils.swap(array.arr, i, largest);
     await heapify(array, n, largest);
   }
 }
 
-async function createMaxHeap() {
+async function createMaxHeap(array) {
   let n = array.length();
   for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
     await heapify(array, n, i);

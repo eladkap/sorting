@@ -9,18 +9,18 @@ class Element {
   }
 
   draw() {
-    ctx.beginPath();
-    ctx.strokeStyle = 'black';
-    ctx.fillStyle = this.backColor;
-    ctx.rect(this.pos.x, this.pos.y, this.width, this.value);
-    ctx.stroke();
-    ctx.fill();
+    app.ctx.beginPath();
+    app.ctx.strokeStyle = 'black';
+    app.ctx.fillStyle = this.backColor;
+    app.ctx.rect(this.pos.x, this.pos.y, this.width, this.value);
+    app.ctx.stroke();
+    app.ctx.fill();
 
     if (this.arrSize <= MIN_ARRAY_SIZE_SHOW_VALUES) {
-      ctx.font = '20px Arial';
-      ctx.textAlign = 'center'; 
-      ctx.fillStyle = 'white';
-      ctx.fillText(this.value, this.pos.x + this.width / 2, this.pos.y);
+      app.ctx.font = '20px Arial';
+      app.ctx.textAlign = 'center'; 
+      app.ctx.fillStyle = 'white';
+      app.ctx.fillText(this.value, this.pos.x + this.width / 2, this.pos.y);
     }
   }
 

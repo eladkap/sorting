@@ -7,7 +7,7 @@ async function partition(array, start, end) {
 
   for (let i = start; i < end; i++) {
     if (array.arr[i].value < pivotValue) {
-      await Utils.sleep(delayInMilliSec);
+      await Utils.sleep(app.delayInMilliSec);
       Utils.swap(array.arr, i, pivotIndex);
       array.arr[pivotIndex].setBackcolor(TURQUOISELIGHT);
       pivotIndex++;
