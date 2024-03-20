@@ -19,7 +19,7 @@ class MyArray {
   }
 
   get(i) {
-    return this.arr[i];
+    return this.arr[i].value;
   }
 
   generate() {

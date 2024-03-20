@@ -30,7 +30,8 @@
         <li>
           <label for="sort-selector">Array size</label>
           
-          <input type="range" min="4" max="128" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)">
+          <input type="range" min="4" max="128" step="1" value="8" class="array-size-slider" id="array-size-slider" onchange="chooseArraySize(this.value)"
+            oninput="chooseArraySize(this.value)">
         </li>
         <li>
           <button id="btn-sort-arr" onclick="runSort()">Sort</button>

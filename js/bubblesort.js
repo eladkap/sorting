@@ -4,7 +4,7 @@ async function bubble(array, k) {
     array.setBackcolor(0, k, TURQUOISELIGHT);
     array.arr[i].setBackcolor(YELLOW);
     array.arr[i + 1].setBackcolor(YELLOW);
-    if (array.get(i).value > array.get(i + 1).value) {
+    if (array.get(i) > array.get(i + 1)) {
       Utils.swap(array.arr, i, i + 1);
     }
   }

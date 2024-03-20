@@ -1,6 +1,3 @@
-/* CANVAS */
-
-
 /* COLORS */
 const BLACK = 'rgb(0, 0, 0)';
 const GRAY1 = 'rgb(50, 50, 50)';
@@ -33,7 +30,7 @@ const MAX_VALUE = 500;
 const MIN_ARRAY_SIZE_SHOW_VALUES = 16;
 
 /* DELAY IN MILLISEC */
-const MIN_DELAY_IN_MS = 10;
+const MIN_DELAY_IN_MS = 20;
 const MAX_DELAY_IN_MS = 100;
 
 /* FONT */

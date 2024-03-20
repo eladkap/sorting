@@ -11,7 +11,7 @@ async function heapify(array, n, i) {
     largest = right;
   }
 
-  array.setBackcolor(0, i - 1, TURQUOISELIGHT); // n-1
+  array.setBackcolor(0, i - 1, TURQUOISELIGHT);
   array.arr[i].setBackcolor(YELLOW);
   array.arr[largest].setBackcolor(YELLOW);
   if (largest != i) {

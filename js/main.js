@@ -148,7 +148,12 @@ async function markArraySorted() {
 }
 
 async function runSort() {
-  await startSort();
+  if (array.isSorted()) {
+    window.alert('Array is already sorted.');
+  }
+  else {
+    await startSort();
+  }
   finishSort();
 }
 
